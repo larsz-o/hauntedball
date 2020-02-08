@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float moveSpeed = 1f;
+    
+    float xMin;
+    float xMax;
+    float yMin;
+    float yMax;
     void Start()
     {
-        
+        SetUpMoveBoundaries();
     }
 
     // Update is called once per frame
@@ -18,11 +23,18 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-       var deltaX = Input.GetAxis("Horizontal");
-       Debug.Log("this is deltaX: " + deltaX);
-       Debug.Log("this is my current position " + transform.position.x);
-       float newXPos = transform.position.x + deltaX;
-               Debug.Log("this is newXPos: " + newXPos);
-       transform.position = new Vector2(newXPos, transform.position.y);
+       var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+       var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+       float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+       float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+       transform.position = new Vector2(newXPos, newYPos);
+    }
+    private void SetUpMoveBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
     }
 }
