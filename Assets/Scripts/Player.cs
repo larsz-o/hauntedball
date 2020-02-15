@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float padding = 1f;
+    [SerializeField] int health = 200;
+    [SerializeField] [Range(0, 1)] float dieSoundVolume;
+    [Header("Projectile")]
     [SerializeField] GameObject playerWeapon;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
+    [SerializeField] AudioClip dieSoundClip;
+
     float xMin;
     float xMax;
     float yMin;
@@ -26,6 +32,11 @@ public class Player : MonoBehaviour
 
         Move();
         Fire();
+    }
+    private void Die()
+    {
+        AudioSource.PlayClipAtPoint(dieSoundClip, Camera.main.transform.position, dieSoundVolume);
+        Destroy(gameObject);
     }
     IEnumerator FireContinuously()
     {
@@ -49,6 +60,15 @@ public class Player : MonoBehaviour
             StopCoroutine(firingCoroutine);
         }
     }
+    private void HandleHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
     private void Move()
     {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
@@ -56,6 +76,15 @@ public class Player : MonoBehaviour
         float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+    private void OnTriggerEnter2D(Collider2D thingThatHitsMe)
+    {
+        DamageDealer damageDealer = thingThatHitsMe.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer)
+        {
+            return;
+        }
+        HandleHit(damageDealer);
     }
 
     private void SetUpMoveBoundaries()
