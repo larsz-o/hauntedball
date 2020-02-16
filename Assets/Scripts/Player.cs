@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
+    [SerializeField] AudioClip playerDieSoundClip;
     [SerializeField] [Range(0, 1)] float dieSoundVolume;
+
     [Header("Projectile")]
     [SerializeField] GameObject playerWeapon;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
-    [SerializeField] AudioClip dieSoundClip;
+  
 
     float xMin;
     float xMax;
@@ -35,8 +37,9 @@ public class Player : MonoBehaviour
     }
     private void Die()
     {
-        AudioSource.PlayClipAtPoint(dieSoundClip, Camera.main.transform.position, dieSoundVolume);
+        AudioSource.PlayClipAtPoint(playerDieSoundClip, Camera.main.transform.position, dieSoundVolume);
         Destroy(gameObject);
+        FindObjectOfType<SceneLoader>().EndGame();
     }
     IEnumerator FireContinuously()
     {
