@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
         DamageDealer damageDealer = thingThatBumpedIntoMe.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer)
         {
-            Debug.Log("nothing here.");
             return;
         }
         ProcessHit(damageDealer);

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54f284ae83aa41ac8fa8df3d633e8b0, type: 3}
   m_Name: HealthPoints
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  pathPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 8233123290863811, guid: ab20a7ce5b91548828d691bce1e45d42,
+    type: 3}
+  pathPrefab: {fileID: 3983379359978894441, guid: dfadf37a2e0614a3bbce850e92cbcc58,
+    type: 3}
   timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
-  numberOfEnemies: 5
-  moveSpeed: 2
+  numberOfEnemies: 3
+  moveSpeed: 5

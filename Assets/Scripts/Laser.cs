@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
+    [SerializeField] float health = 50f;
     private void OnTriggerEnter2D(Collider2D thingThatBumpedIntoMe)
     {
+        Debug.Log("triggers");
         DamageDealer damageDealer = thingThatBumpedIntoMe.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer)
         {

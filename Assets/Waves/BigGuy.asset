@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54f284ae83aa41ac8fa8df3d633e8b0, type: 3}
+  m_Name: BigGuy
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5094834406380863275, guid: a7a34408daff645bfa4d2c219bdb1428,
+    type: 3}
+  pathPrefab: {fileID: 633498837645533738, guid: 612c934a4a5134a0d93b1be55a03dfde,
+    type: 3}
+  timeBetweenSpawns: 2
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 5
+  moveSpeed: 2

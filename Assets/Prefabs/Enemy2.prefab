@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1831556061333398380}
   - component: {fileID: 3119965573956615837}
   - component: {fileID: -3225474215982925084}
-  - component: {fileID: 5146958044942639272}
   - component: {fileID: 6054033970746425933}
   - component: {fileID: 2298736191010942059}
   - component: {fileID: 7555281705368062953}
   - component: {fileID: -4273466029408370566}
+  - component: {fileID: 5083644571952688086}
   m_Layer: 9
   m_Name: Enemy2
   m_TagString: Untagged
@@ -98,60 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e373fc051cc48edaea4f0b2bb52706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 400
+  pointsPerKill: 150
+  pointsPerHit: 37
+  shooting: 1
+  dieSoundClip: {fileID: 8300000, guid: 43549f8a4e03045d2a09112e0b3ba037, type: 3}
+  dieSoundVolume: 0.7
+  shotSound: {fileID: 8300000, guid: b952d8a78fd96400cb6480d9c44a3ecc, type: 3}
+  shotSoundVolume: 0.7
+  enemyWeapon: {fileID: 895780505419352891, guid: 75547496518d3421c83464f0d7f20ebe,
+    type: 3}
   shotSpeed: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  dieSoundClip: {fileID: 8300000, guid: 43549f8a4e03045d2a09112e0b3ba037, type: 3}
-  dieSoundVolume: 0.7
-  enemyWeapon: {fileID: 895780505419352891, guid: 6e31a922eb1ff429eba4a1524881c181,
-    type: 3}
-  projectileSpeed: 5
+  projectileSpeed: 4
   projectileFiringPeriod: 1
   explosionParticles: {fileID: 3681751179843784512, guid: 710b6d14234a34d748760c1fe44d9338,
     type: 3}
-  shotSound: {fileID: 8300000, guid: b952d8a78fd96400cb6480d9c44a3ecc, type: 3}
-  shotSoundVolume: 0.7
-  shooting: 1
---- !u!60 &5146958044942639272
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6843792117718099498}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.88, y: 0.37}
-    newSize: {x: 0.51, y: 0.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.2105298, y: 0.007371217}
-      - {x: 0.33342934, y: -0.0038616955}
-      - {x: 0.4512601, y: 0.12116426}
-      - {x: 0.21574807, y: 0.1855624}
-      - {x: 0.030841112, y: 0.07341397}
-      - {x: -0.22546673, y: 0.19677725}
-      - {x: -0.26060772, y: 0.17677727}
-      - {x: -0.3951857, y: 0.1065411}
-      - {x: -0.31107426, y: 0.019015819}
-      - {x: -0.116496086, y: 0.03312713}
-      - {x: -0.100792885, y: -0.09584355}
-      - {x: 0.08864474, y: -0.15995498}
-      - {x: 0.035748005, y: -0.16313267}
-      - {x: 0.13406634, y: -0.15752524}
 --- !u!114 &6054033970746425933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,3 +257,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!60 &5083644571952688086
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843792117718099498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.88, y: 0.37}
+    newSize: {x: 0.51, y: 0.73}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.30177355, y: 0.15769532}
+      - {x: 0.17, y: 0.185}
+      - {x: 0.02, y: 0.105}
+      - {x: -0.099999994, y: 0.185}
+      - {x: -0.328156, y: 0.16861728}
+      - {x: -0.3963127, y: 0.14315632}
+      - {x: -0.44, y: 0.105}
+      - {x: -0.32453895, y: -0.007695377}
+      - {x: -0.17730474, y: 0.043296665}
+      - {x: -0.11, y: -0.125}
+      - {x: 0.049999997, y: -0.185}
+      - {x: 0.14999999, y: -0.185}
+      - {x: 0.18617201, y: 0.029609323}
+      - {x: 0.34170318, y: 0.02039072}
+      - {x: 0.44, y: 0.13499999}

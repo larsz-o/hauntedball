@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54f284ae83aa41ac8fa8df3d633e8b0, type: 3}
   m_Name: GemPath
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  pathPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 6899294361595297622, guid: cef8b2214fa9543bdb5f57bb7307f239,
+    type: 3}
+  pathPrefab: {fileID: 5009268083232221890, guid: 9e587b1ec8a894c34acaba9813a57475,
+    type: 3}
   timeBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
   numberOfEnemies: 5
-  moveSpeed: 2
+  moveSpeed: 4

@@ -111,22 +111,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10000
-  shotSpeed: 0
-  minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 3
-  dieSoundClip: {fileID: 8300000, guid: 43549f8a4e03045d2a09112e0b3ba037, type: 3}
-  dieSoundVolume: 0.7
   pointsPerKill: 150
   pointsPerHit: 37
+  shooting: 1
+  dieSoundClip: {fileID: 8300000, guid: 43549f8a4e03045d2a09112e0b3ba037, type: 3}
+  dieSoundVolume: 0.7
+  shotSound: {fileID: 8300000, guid: b952d8a78fd96400cb6480d9c44a3ecc, type: 3}
+  shotSoundVolume: 0.7
   enemyWeapon: {fileID: 895780505419352891, guid: 75547496518d3421c83464f0d7f20ebe,
     type: 3}
-  projectileSpeed: 8
+  shotSpeed: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 5
+  projectileSpeed: 5
   projectileFiringPeriod: 1.3
   explosionParticles: {fileID: 3681751179843784512, guid: 710b6d14234a34d748760c1fe44d9338,
     type: 3}
-  shotSound: {fileID: 8300000, guid: b952d8a78fd96400cb6480d9c44a3ecc, type: 3}
-  shotSoundVolume: 0.7
-  shooting: 1
 --- !u!60 &-977941810155842298
 PolygonCollider2D:
   m_ObjectHideFlags: 0
