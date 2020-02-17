@@ -35,11 +35,19 @@ public class Player : MonoBehaviour
         Move();
         Fire();
     }
+    public void AddHealth(DamageDealer damageDealer)
+    {
+        health += damageDealer.GetDamage();
+    }
     private void Die()
     {
         AudioSource.PlayClipAtPoint(playerDieSoundClip, Camera.main.transform.position, dieSoundVolume);
         Destroy(gameObject);
         FindObjectOfType<SceneLoader>().EndGame();
+    }
+    public int GetHealth()
+    {
+        return health;
     }
     IEnumerator FireContinuously()
     {
@@ -50,7 +58,6 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(projectileFiringPeriod);
             weapon.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
         }
-
     }
     private void Fire()
     {

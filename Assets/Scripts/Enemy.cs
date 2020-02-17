@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy")]
+    [Header("Enemy Stats")]
     [SerializeField] float health = 500f;
-    [SerializeField] float shotSpeed;
-    [SerializeField] float minTimeBetweenShots = 0.2f;
-    [SerializeField] float maxTimeBetweenShots = 3f;
-    [SerializeField] AudioClip dieSoundClip;
-    [SerializeField] [Range(0, 1)] float dieSoundVolume = 0.7f;
     [SerializeField] int pointsPerKill = 150;
     [SerializeField] int pointsPerHit = 37;
+    [SerializeField] bool shooting = true;
+    [Header("Sound Effects")]
+    [SerializeField] AudioClip dieSoundClip;
+    [SerializeField] [Range(0, 1)] float dieSoundVolume = 0.7f;
+     [SerializeField] AudioClip shotSound;
+    [SerializeField] [Range(0, 1)] float shotSoundVolume = 0.7f;
+ 
 
     [Header("Projectile")]
     [SerializeField] GameObject enemyWeapon;
+    [SerializeField] float shotSpeed;
+    [SerializeField] float minTimeBetweenShots = 0.2f;
+    [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
     [SerializeField] GameObject explosionParticles;
-    [SerializeField] AudioClip shotSound;
-    [SerializeField] [Range(0, 1)] float shotSoundVolume = 0.7f;
-     [SerializeField] bool shooting = true;
+   
+   
 
     void Start()
     {
@@ -60,26 +64,19 @@ public class Enemy : MonoBehaviour
     }
     private void ProcessHit(DamageDealer damageDealer)
     {
-        
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         FindObjectOfType<GameSession>().AddToScore(pointsPerHit);
         if (health <= 0)
         {
             Die();
-        } else if (health > 0) 
-        {
-            Debug.Log("I am still going.");
-        }
+        } 
     }
     private void Die()
     {
-        Debug.Log("I am inside die");
         AudioSource.PlayClipAtPoint(dieSoundClip, Camera.main.transform.position, dieSoundVolume);
-        Debug.Log("I am about to particle.");
         FindObjectOfType<GameSession>().AddToScore(pointsPerKill);
         GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);
-        Debug.Log("I am destroying");
         Destroy(gameObject);
         Destroy(explosion, 1f);
     }

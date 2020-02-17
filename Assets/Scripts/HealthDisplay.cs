@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class ScoreDisplay : MonoBehaviour
+public class HealthDisplay : MonoBehaviour
 {
-    GameSession gameSession;
+ Player player;
     [SerializeField] Text scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText = GetComponent<Text>();
-        gameSession = FindObjectOfType<GameSession>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = gameSession.GetScore().ToString();
+        scoreText.text = player.GetHealth().ToString();
     }
 }

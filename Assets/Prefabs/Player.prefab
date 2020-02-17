@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   padding: 0
-  health: 1500
+  health: 5000
   playerDieSoundClip: {fileID: 8300000, guid: 7123567aa750a48e0ac7d55a382a06b2, type: 3}
   dieSoundVolume: 0.72
   playerWeapon: {fileID: 3604034677426605705, guid: c154a68567fcf40aea749af6189d07c5,
